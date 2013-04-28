@@ -8,6 +8,9 @@
 	<script src="/Scripts/main.js"></script>
 </head>
 <body>
+
+	    <%= Html.Action("UserLogin","Home") %>
+
 	<div>
 		<div id="data"></div>
 		
@@ -18,4 +21,3 @@
 		</form>
 	</div>
 </body>
-

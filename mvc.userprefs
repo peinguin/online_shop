@@ -1,14 +1,32 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="mvc/Controllers/HomeController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="mvc/Views/Home/UserLogin.aspx">
     <Files>
-      <File FileName="mvc/Controllers/HomeController.cs" Line="144" Column="32" />
-      <File FileName="mvc/Web.config" Line="18" Column="15" />
-      <File FileName="mvc/Views/Web.config" Line="28" Column="1" />
-      <File FileName="mvc/Scripts/main.js" Line="19" Column="2" />
-      <File FileName="mvc/Global.asax" Line="1" Column="1" />
-      <File FileName="mvc/Models/Models.cs" Line="1" Column="1" />
+      <File FileName="mvc/Views/Home/Index.aspx" Line="12" Column="41" />
+      <File FileName="mvc/Views/Home/UserLogin.aspx" Line="1" Column="2" />
+      <File FileName="mvc/Controllers/HomeController.cs" Line="10" Column="18" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="mvc" expanded="True">
+            <Node name="Controllers" expanded="True" />
+            <Node name="Global" expanded="True">
+              <Node name="Auth" expanded="True" />
+            </Node>
+            <Node name="Models" expanded="True">
+              <Node name="ViewModels" expanded="True" />
+            </Node>
+            <Node name="Scripts" expanded="True" />
+            <Node name="Views" expanded="True">
+              <Node name="Home" expanded="True">
+                <Node name="UserLogin.aspx" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

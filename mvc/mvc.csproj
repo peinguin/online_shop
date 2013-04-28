@@ -46,21 +46,25 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Db4objects.Db4o">
       <HintPath>..\..\..\..\..\usr\lib\cli\Db4objects.Db4o-8.0\Db4objects.Db4o.dll</HintPath>
+      <Package>db4o</Package>
     </Reference>
     <Reference Include="Db4objects.Db4o.CS">
       <HintPath>..\..\..\..\..\usr\lib\cli\Db4objects.Db4o.CS-8.0\Db4objects.Db4o.CS.dll</HintPath>
+      <Package>db4o</Package>
     </Reference>
     <Reference Include="Cecil.FlowAnalysis">
       <HintPath>..\..\..\..\..\usr\lib\cli\Db4objects.Db4o.Instrumentation-8.0\Cecil.FlowAnalysis.dll</HintPath>
     </Reference>
     <Reference Include="Db4objects.Db4o.Instrumentation">
       <HintPath>..\..\..\..\..\usr\lib\cli\Db4objects.Db4o.Instrumentation-8.0\Db4objects.Db4o.Instrumentation.dll</HintPath>
+      <Package>db4o</Package>
     </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>..\..\..\..\..\usr\lib\cli\Db4objects.Db4o.Instrumentation-8.0\Mono.Cecil.dll</HintPath>
     </Reference>
     <Reference Include="Db4objects.Db4o.Linq">
       <HintPath>..\..\..\..\..\usr\lib\cli\Db4objects.Db4o.Linq-8.0\Db4objects.Db4o.Linq.dll</HintPath>
+      <Package>db4o</Package>
     </Reference>
     <Reference Include="Mono.Reflection">
       <HintPath>..\..\..\..\..\usr\lib\cli\Db4objects.Db4o.Linq-8.0\Mono.Reflection.dll</HintPath>
@@ -70,25 +74,44 @@
     </Reference>
     <Reference Include="Db4objects.Db4o.NativeQueries">
       <HintPath>..\..\..\..\..\usr\lib\cli\Db4objects.Db4o.NativeQueries-8.0\Db4objects.Db4o.NativeQueries.dll</HintPath>
+      <Package>db4o</Package>
     </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>..\..\..\..\..\usr\lib\cli\Db4objects.Db4o.NativeQueries-8.0\Mono.Cecil.dll</HintPath>
+      <Package>monodevelop</Package>
     </Reference>
     <Reference Include="Db4objects.Db4o.Optional">
       <HintPath>..\..\..\..\..\usr\lib\cli\Db4objects.Db4o.Optional-8.0\Db4objects.Db4o.Optional.dll</HintPath>
+      <Package>db4o</Package>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\" />
     <Folder Include="Models\" />
     <Folder Include="Scripts\" />
+    <Folder Include="Global\" />
+    <Folder Include="Global\Auth\" />
+    <Folder Include="Models\ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Models.cs" />
+    <Compile Include="Models\user.cs" />
+    <Compile Include="Models\Base.cs" />
+    <Compile Include="Models\DB.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Global\Auth\IAuthentication.cs" />
+    <Compile Include="Global\Auth\CustomAuthentication.cs" />
+    <Compile Include="Global\IRepository.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Global\Auth\UserProvider.cs" />
+    <Compile Include="Global\Auth\UserIdentity.cs" />
+    <Compile Include="Global\Dd4oRepository.cs" />
+    <Compile Include="Models\ViewModels\LoginView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />
@@ -96,6 +119,7 @@
     <Content Include="Web.config" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\main.js" />
+    <Content Include="Views\Home\UserLogin.aspx" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
