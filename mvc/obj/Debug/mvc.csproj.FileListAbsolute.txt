@@ -1,5 +1,0 @@
-C:\projects\online_shop\mvc\bin\mvc.dll
-C:\projects\online_shop\mvc\bin\mvc.pdb
-C:\projects\online_shop\mvc\obj\Debug\ResolveAssemblyReference.cache
-C:\projects\online_shop\mvc\obj\Debug\mvc.dll
-C:\projects\online_shop\mvc\obj\Debug\mvc.pdb
