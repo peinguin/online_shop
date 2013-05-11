@@ -1,0 +1,1 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/_Layout.Master" Inherits="System.Web.Mvc.ViewPage<dynamic>" %>

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "online_shop", "online_shop\online_shop.csproj", "{CE9276D4-C6A8-40AE-AAB6-EF8CBAE5E3FD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shop", "shop\shop.csproj", "{2803BD9F-D205-41A8-9409-798B44F096D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CE9276D4-C6A8-40AE-AAB6-EF8CBAE5E3FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CE9276D4-C6A8-40AE-AAB6-EF8CBAE5E3FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CE9276D4-C6A8-40AE-AAB6-EF8CBAE5E3FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CE9276D4-C6A8-40AE-AAB6-EF8CBAE5E3FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2803BD9F-D205-41A8-9409-798B44F096D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2803BD9F-D205-41A8-9409-798B44F096D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2803BD9F-D205-41A8-9409-798B44F096D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2803BD9F-D205-41A8-9409-798B44F096D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
