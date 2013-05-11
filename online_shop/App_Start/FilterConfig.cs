@@ -1,6 +1,5 @@
-﻿using System.Web;
+﻿/*using System.Web;
 using System.Web.Mvc;
-
 namespace online_shop
 {
     public class FilterConfig
@@ -10,4 +9,4 @@ namespace online_shop
             filters.Add(new HandleErrorAttribute());
         }
     }
-}
+}*/
