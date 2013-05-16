@@ -9,5 +9,4 @@
 else
 {%> 
     <li><%= Html.ActionLink("Вход", "Index", "Login") %></li>
-    <li><%= Html.ActionLink("Регистрация", "Register", "User") %></li>
 <%}%>

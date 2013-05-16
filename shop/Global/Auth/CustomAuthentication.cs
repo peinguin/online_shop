@@ -84,6 +84,7 @@ namespace shop.Global.Auth
             if (httpCookie != null)
             {
                 httpCookie.Value = string.Empty;
+                _currentUser = new UserProvider(null, null);
             }
         }
 
@@ -93,7 +94,7 @@ namespace shop.Global.Auth
         {
             get
             {
-                if (_currentUser == null)
+                if (_currentUser == null || !_currentUser.Identity.IsAuthenticated)
                 {
                     try
                     {
