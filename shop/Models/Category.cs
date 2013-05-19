@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace shop.Models
 {
-    class Category : Base<Category>
+    public class Category : Base<Category>
     {
 
         private List<Product> _products;

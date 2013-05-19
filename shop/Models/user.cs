@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace shop.Models
 {
@@ -7,6 +8,7 @@ namespace shop.Models
     {
         String _email;
         String _password;
+        public List<string> roles = new List<string>();
 
         public User(String email, String password)
         {
@@ -30,22 +32,19 @@ namespace shop.Models
             }
         }
 
-        public bool InRoles(string roles)
+        public bool InRoles(string rls)
         {
-            if (string.IsNullOrWhiteSpace(roles))
+            if (string.IsNullOrWhiteSpace(rls))
             {
                 return false;
             }
 
-            /*var rolesArray = roles.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries);
-            foreach (var role in rolesArray)
-            {
-                var hasRole = UserRoles.Any(p => string.Compare(p.Role.Code, role, true) == 0);
-                if (hasRole)
-                {
-                    return true;
-                }
-            }*/
+            if (roles.Contains(rls))
+                return true;
+            else
+                return false;
+
+            
             return false;
         }
     }

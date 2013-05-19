@@ -1,0 +1,26 @@
+﻿@model shop.Models.ViewModels.CategoryView
+@{
+    ViewBag.Title = "AddCategory";
+}
+
+<h2>AddCategory</h2>
+
+@using (Html.BeginForm("AddCategory", "Admin", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <fieldset>
+        <div class="control-group">
+            <label class="control-label" for="Email">
+                Name</label>
+            <div class="controls">
+                @Html.TextBox("Name", Model.Name, new { @class = "input-xlarge" })
+                <p class="help-block">Введите название продукта</p>
+                @Html.ValidationMessage("Name")
+            </div>
+
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">
+                Submit</button>
+        </div>
+    </fieldset>
+}

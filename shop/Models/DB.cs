@@ -5,7 +5,7 @@ namespace shop.Models
     public class DB
     {
         static string _file = 
-            System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) +
+            System.IO.Path.GetDirectoryName("C:\\projects\\") +
             @"\\store.db4o";
         private static IObjectContainer _db;
 

@@ -8,14 +8,17 @@ namespace shop.Global
     {
         public shop.Models.User GetUser(string email)
         {
-            return new shop.Models.User("sdfsf", "sdfasd");//Db.Users.FirstOrDefault(p => string.Compare(p.Email, email, true) == 0);
+            shop.Models.User emptyUser = new shop.Models.User(email, null);
+            IObjectSet res = DB.db.QueryByExample(emptyUser);
+            return (shop.Models.User)res.Next();
         }
 
         public shop.Models.User Login(string email, string password)
         {
 
             /* create admin if not exists */
-            shop.Models.User admin = (new shop.Models.User("admin", "admin"));
+            shop.Models.User admin = new shop.Models.User("admin", "admin");
+            admin.roles.Add("admin");
             IObjectSet result = DB.db.QueryByExample(admin);
             if (result.Count == 0)
             {

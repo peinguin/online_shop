@@ -2,7 +2,7 @@
 
 namespace shop.Models
 {
-    class Product : Base<Product>
+    public class Product : Base<Product>
     {
         String _name;
 

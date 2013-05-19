@@ -1,0 +1,37 @@
+﻿@model shop.Models.ViewModels.ProductView
+@{
+    ViewBag.Title = "AddProduct";
+}
+
+<h2>AddProduct</h2>
+@using (Html.BeginForm("AddProduct", "Admin", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <fieldset>
+        <div class="control-group">
+            <label class="control-label" for="Email">
+                Name</label>
+            <div class="controls">
+                @Html.TextBox("Name", Model.Name, new { @class = "input-xlarge" })
+                <p class="help-block">Введите название продукта</p>
+                @Html.ValidationMessage("Name")
+            </div>
+
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="Password">
+                Пароль</label>
+            <div class="controls">
+                @Html.DropDownList(
+                    "Category",
+                    new SelectList(Model.Categories, "Name", "Name"),
+                    new { style = "display: inline;" }
+                )
+                @Html.ValidationMessage("Password")
+            </div>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">
+                Add</button>
+        </div>
+    </fieldset>
+}

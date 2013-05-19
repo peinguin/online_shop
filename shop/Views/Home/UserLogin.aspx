@@ -5,6 +5,10 @@
 {%> 
     <li><%= Model.Email %></li>
     <li><%= Html.ActionLink("Выход", "Logout", "Login") %></li>
+    <% if (Model.InRoles("admin"))
+       { %>
+       <li><%= Html.ActionLink("Categories", "Categories", "Admin") %></li>
+    <% } %>
 <% }
 else
 {%> 

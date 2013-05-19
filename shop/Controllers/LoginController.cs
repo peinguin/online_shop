@@ -19,7 +19,6 @@ namespace shop.Controllers
         [HttpPost]
         public ActionResult Index(LoginView loginView)
         {
-            var dbkjdbjde = Request.Form;
             if (ModelState.IsValid)
             {
                 Auth = CustomAuthentication.Instance;
