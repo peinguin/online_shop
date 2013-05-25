@@ -4,9 +4,19 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="@Url.Content("~/Content/bootstrap/js/bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/Content/underscore-min.js")"></script>
+
+    <link href="@Url.Content("~/Content/bootstrap/css/bootstrap.min.css")" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    @Html.Action("UserLogin","Home")
+    <header>
+        <ul class="nav nav-pills">
+            @Html.Action("UserLogin","Home")
+        </ul>
+    </header>
     <div>
         @RenderBody()
     </div>

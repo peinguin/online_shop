@@ -111,6 +111,7 @@ namespace shop.Global.Auth
                     }
                     catch (Exception ex)
                     {
+                        ex = null;
                         _currentUser = new UserProvider(null, null);
                     }
                 }

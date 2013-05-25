@@ -1,37 +1,106 @@
 ﻿@model shop.Models.ViewModels.ProductView
 @{
+    Layout = "~/Views/_Layout.cshtml";
     ViewBag.Title = "AddProduct";
 }
 
-<h2>AddProduct</h2>
-@using (Html.BeginForm("AddProduct", "Admin", FormMethod.Post, new { @class = "form-horizontal" }))
-{
-    <fieldset>
-        <div class="control-group">
-            <label class="control-label" for="Email">
-                Name</label>
-            <div class="controls">
-                @Html.TextBox("Name", Model.Name, new { @class = "input-xlarge" })
-                <p class="help-block">Введите название продукта</p>
-                @Html.ValidationMessage("Name")
-            </div>
+<script>
 
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="Password">
-                Пароль</label>
-            <div class="controls">
-                @Html.DropDownList(
-                    "Category",
-                    new SelectList(Model.Categories, "Name", "Name"),
-                    new { style = "display: inline;" }
-                )
-                @Html.ValidationMessage("Password")
-            </div>
-        </div>
-        <div class="form-actions">
-            <button type="submit" class="btn btn-primary">
-                Add</button>
-        </div>
-    </fieldset>
-}
+    var attribute_template = "\
+        <div class=\"attributes\">\
+            <input type=\"text\" name=\"attribute[<%= i %>].key\" placeholder=\"key\" />\
+            <input type=\"text\" name=\"attribute[<%= i %>].name\" placeholder=\"value\" />\
+        </div>\
+    ";
+
+    function new_attribute(el) {
+        var parent = $(el).parent();
+        parent.append(_.template(attribute_template, {i: parent.data('current')}));
+        parent.data('current', parent.data('current') + 1)
+
+        return false;
+    }
+
+</script>
+
+<div class="row">
+    <div class="span11 offset1">
+        <h2>AddProduct</h2>
+        @using (Html.BeginForm("AddProduct", "Admin", FormMethod.Post, new { @class = "form-horizontal",enctype = "multipart/form-data" }))
+        {
+            <fieldset>
+                <div class="control-group">
+                    <label class="control-label" for="Email">
+                        Name</label>
+                    <div class="controls">
+                        @Html.TextBox("Name", Model.Name, new { @class = "input-xlarge" })
+                        @Html.ValidationMessage("Name")
+                    </div>
+
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" for="Email">
+                        Price</label>
+                    <div class="controls">
+                        @Html.TextBox("Price", Model.Price, new { @class = "input-xlarge" })
+                        @Html.ValidationMessage("Price")
+                    </div>
+
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" for="Category">
+                        Category</label>
+                    <div class="controls">
+                        @Html.DropDownList(
+                            "Category",
+                            new SelectList(Model.Categories, "Name", "Name"),
+                            new { style = "display: inline;" }
+                        )
+                        @Html.ValidationMessage("Category")
+                    </div>
+                </div>               
+
+                <div class="control-group">
+                    <label class="control-label" for="Description">
+                        Description</label>
+                    <div class="controls">
+                        @Html.TextArea(
+                         "Description",
+                            new
+                            {
+                                rows = 3,
+                                columns = 5
+                            }
+                        )
+                        @Html.ValidationMessage("Description")
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" for="Image">
+                        Image</label>
+                    <div class="controls">
+                        <input type="file" id="Image" name="Image"/>
+                        @Html.ValidationMessage("Image")
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label">
+                        Additional attributes
+                    </label>
+                    <div class="controls" data-current="0">
+                        <button onclick="return new_attribute(this);">+</button>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">
+                        Add</button>
+                </div>
+            </fieldset>
+        }
+    </div>
+</div>

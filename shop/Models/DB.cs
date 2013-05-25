@@ -1,11 +1,11 @@
 ﻿using Db4objects.Db4o;
-
+using System;
 namespace shop.Models
 {
     public class DB
     {
-        static string _file = 
-            System.IO.Path.GetDirectoryName("C:\\projects\\") +
+        public static string _file =
+            AppDomain.CurrentDomain.GetData("DataDirectory").ToString() +
             @"\\store.db4o";
         private static IObjectContainer _db;
 
@@ -19,8 +19,14 @@ namespace shop.Models
                 }
                 return _db;
             }
+            set { _db = value; }
         }
 
         private DB() { }
+
+        ~DB()
+        {
+            _db.Close();
+        }
     }
 }

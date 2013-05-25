@@ -1,8 +1,11 @@
 ﻿@model shop.Models.ViewModels.CategoryView
 @{
+    Layout = "~/Views/_Layout.cshtml";
     ViewBag.Title = "AddCategory";
 }
 
+<div class="row">
+    <div class="span11 offset1">
 <h2>AddCategory</h2>
 
 @using (Html.BeginForm("AddCategory", "Admin", FormMethod.Post, new { @class = "form-horizontal" }))
@@ -24,3 +27,5 @@
         </div>
     </fieldset>
 }
+    </div>
+</div>

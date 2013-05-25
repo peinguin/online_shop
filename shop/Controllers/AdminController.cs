@@ -4,6 +4,10 @@ using shop.Models;
 using Db4objects.Db4o;
 using shop.Models.ViewModels;
 using System.Collections.Generic;
+
+using System.IO;
+
+
 namespace shop.Controllers
 {
     [Authorize(Roles = "admin")]
@@ -13,7 +17,8 @@ namespace shop.Controllers
         public ActionResult Categories()
         {
             var categories = new List<Category>();
-            foreach (Category p in DB.db.QueryByExample(typeof(Category)))
+            IObjectSet results = Category.GetAll();
+            foreach (Category p in results)
             {
                 categories.Add(p);
             }
@@ -32,7 +37,7 @@ namespace shop.Controllers
         [HttpGet]
         public ActionResult AddCategory()
         {
-            return View();
+            return View(new CategoryView());
         }
         [HttpPost]
         public ActionResult AddCategory(CategoryView categoryView)
@@ -60,16 +65,69 @@ namespace shop.Controllers
         [HttpPost]
         public ActionResult AddProduct(ProductView productView)
         {
-            IObjectSet categories = DB.db.QueryByExample(new shop.Models.Category(productView.Category));
-            if (categories.Count > 0) {
-                Product product = new Product(productView.Name);
-                DB.db.Store(product);
-                Category category = (Category)categories.Next();
-                category.addProduct(product);
-                DB.db.Store(category);
-                return RedirectToAction("Products", "Admin");
+            if (ModelState.IsValid)
+            {
+                IObjectSet categories = DB.db.QueryByExample(new shop.Models.Category(productView.Category));
+
+                var valid = true;
+
+                if (categories.Count == 0)
+                {
+                    valid = false;
+                    ModelState.AddModelError("Category", "Category is required.");
+                }
+
+                if (productView.Image == null)
+                {
+                    ModelState.AddModelError("Image", "Image must be");
+                }
+                else
+                {
+                    if (productView.Image.ContentType != "image/jpeg")
+                    {
+                        valid = false;
+                        ModelState.AddModelError("Image", "Image must be i jpeg picture");
+                    }
+                    else
+                    {
+                        var name = Path.GetFileName(productView.Image.FileName);
+
+                        var fileName = Path.GetFileNameWithoutExtension(name);
+                        var extension = Path.GetExtension(name);
+                        var i = 0;
+
+                        var path = Path.Combine(Server.MapPath("~/Content/products"), fileName + extension);
+
+                        while (System.IO.File.Exists(path))
+                        {
+                            ++i;
+                            path = Path.Combine(Server.MapPath("~/Content/products"), fileName + i + extension);
+                        }
+                        productView.Image.SaveAs(path);
+                    }
+                }
+
+                if (productView.Price == null || productView.Price <= 0)
+                {
+                    valid = false;
+                    ModelState.AddModelError("Price", "Price must be greather by 0");
+                }
+
+                var itemToRemove = Request.Form["attribute"];
+                if (valid)
+                {
+                    Category category = (Category)categories.Next();
+                    Product product = new Product(productView.Name);
+
+                    product.attributes = productView.attribute;
+                    product.Price = productView.Price;
+                    category.addProduct(product);
+                    DB.db.Store(category.Products);
+
+                    return RedirectToAction("Products", "Admin");
+                }
             }
-            ModelState["Category"].Errors.Add("Category not found");
+            productView.Categories = Category.GetAll();
             return View(productView);
         }
 

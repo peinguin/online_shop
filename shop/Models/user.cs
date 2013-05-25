@@ -43,9 +43,6 @@ namespace shop.Models
                 return true;
             else
                 return false;
-
-            
-            return false;
         }
     }
 }

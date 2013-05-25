@@ -1,10 +1,14 @@
 ﻿@model IEnumerable<shop.Models.Product>
 @{
+    Layout = "~/Views/_Layout.cshtml";
     ViewBag.Title = "Products";
 }
-
-<h2>Products</h2>
-@foreach (var product in Model)
-    {<li>@product.Name</li>}
-</ul>
-@Html.ActionLink("New", "AddProduct", "Admin")
+<div class="row">
+    <div class="span11 offset1">
+        <h2>Products</h2>
+        @foreach (var product in Model)
+            {<li>@product.Name</li>}
+        </ul>
+        @Html.ActionLink("New", "AddProduct", "Admin")
+    </div>
+</div>

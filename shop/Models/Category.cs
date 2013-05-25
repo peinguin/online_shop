@@ -6,7 +6,7 @@ namespace shop.Models
     public class Category : Base<Category>
     {
 
-        private List<Product> _products;
+        private IList<Product> _products;
         private String _name;
 
         public Category(String name)
@@ -28,7 +28,7 @@ namespace shop.Models
             }
         }
 
-        public List<Product> Products
+        public IList<Product> Products
         {
             get
             {

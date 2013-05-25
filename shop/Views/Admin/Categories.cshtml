@@ -1,15 +1,21 @@
 ﻿@model List<shop.Models.Category>
+
 @{
+    Layout = "~/Views/_Layout.cshtml";
     ViewBag.Title = "Categories";
 }
 
-<h2>Categories</h2>
-<ul>
-@foreach (var cat in Model)
-{
-    <li>
-    @cat.Name
-    </li>
-    }
-</ul>
-@Html.ActionLink("New", "AddCategory", "Admin")
+<div class="row">
+    <div class="span11 offset1">
+        <h2>Categories</h2>
+        <ul>
+        @foreach (var cat in Model)
+        {
+            <li>
+            @cat.Name (@cat.Products.Count)
+            </li>
+            }
+        </ul>
+        @Html.ActionLink("New", "AddCategory", "Admin")
+    </div>
+</div>

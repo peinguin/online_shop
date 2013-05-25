@@ -71,3 +71,4 @@ C:\projects\online_shop\shop\bin\System.Web.WebPages.Deployment.xml
 C:\projects\online_shop\shop\bin\System.Web.WebPages.Razor.xml
 C:\projects\online_shop\shop\obj\Debug\shop.dll
 C:\projects\online_shop\shop\obj\Debug\shop.pdb
+C:\projects\online_shop\shop\obj\Debug\shop.csprojResolveAssemblyReference.cache
